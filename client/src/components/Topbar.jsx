@@ -88,7 +88,7 @@ const Topbar = () => {
           <DropdownMenuTrigger>
             <Avatar>
               <AvatarImage
-                src="https://avatar.iran.liara.run/public"
+                src={user?.avatar || "https://avatar.iran.liara.run/public"}
                 className="cursor-pointer"
               />
             </Avatar>

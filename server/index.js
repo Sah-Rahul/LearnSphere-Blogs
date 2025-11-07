@@ -7,6 +7,7 @@ dotenv.config();
 
 // routes
 import AuthRoute from "./src/routes/auth.routes.js";
+import userRoute from "./src/routes/user.routes.js";
  
 const app = express();
 connectDB();
@@ -23,6 +24,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/v1/auth', AuthRoute)
+app.use('/api/v1/user', userRoute)
  
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;

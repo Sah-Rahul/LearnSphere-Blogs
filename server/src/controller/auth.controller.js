@@ -41,7 +41,7 @@ export const Login = async (req, res, next) => {
     }
     const hashedPassword = user.password;
 
-    const comparePassword = bcrypt.compare(password, hashedPassword);
+    const comparePassword = await bcrypt.compare(password, hashedPassword);
     if (!comparePassword) {
       next(handleError(404, "Invalid login credentials."));
     }
@@ -51,7 +51,7 @@ export const Login = async (req, res, next) => {
         _id: user._id,
         name: user.name,
         email: user.email,
-        avatar: user.avatar,
+        avatar: user.avatar || "https://avatar.iran.liara.run/public",
       },
       process.env.JWT_SECRET_KEY
     );
